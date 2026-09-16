@@ -33,8 +33,9 @@ pip install -r requirements.txt
 ## Run tests
 
 The `TodoClient` defaults to `https://jsonplaceholder.typicode.com`, and you can
-override the API host with `TODO_API_BASE_URL`. The included tests mock HTTP
-responses so they stay stable in offline CI environments.
+override the API host with `TODO_API_BASE_URL`. The included pytest suite is a
+mocked client test suite, so it validates request construction and response
+handling without requiring live network access in CI.
 
 ```bash
 pytest
