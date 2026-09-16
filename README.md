@@ -54,3 +54,6 @@ Serve the report locally:
 ```bash
 allure serve allure-results
 ```
+
+> `allure serve` requires the Allure command-line tool to be installed separately
+> from the Python dependencies.
