@@ -19,8 +19,11 @@ def load_test_data(file_name: str) -> dict:
 def make_response(status_code: int, payload: dict | list | None = None) -> Response:
     response = Response()
     response.status_code = status_code
-    response._content = json.dumps(payload if payload is not None else {}).encode("utf-8")
-    response.headers["Content-Type"] = "application/json"
+    if payload is None:
+        response._content = b""
+    else:
+        response._content = json.dumps(payload).encode("utf-8")
+        response.headers["Content-Type"] = "application/json"
     return response
 
 
