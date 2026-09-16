@@ -1,1 +1,55 @@
 # mock-qa-competition-1
+
+Simple pytest-based API QA infrastructure for todo endpoints.
+
+## Project structure
+
+```text
+mock-qa-competition-1/
+├── api/
+│   └── todo_client.py
+├── test_data/
+│   ├── create_todo.json
+│   └── update_todo.json
+├── tests/
+│   ├── test_create_todo.py
+│   ├── test_delete_todo.py
+│   ├── test_get_todos.py
+│   └── test_update_todo.py
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
+└── test_plan.md
+```
+
+## Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Run tests
+
+The `TodoClient` defaults to `https://jsonplaceholder.typicode.com`, and you can
+override the API host with `TODO_API_BASE_URL`. The included tests mock HTTP
+responses so they stay stable in offline CI environments.
+
+```bash
+pytest
+```
+
+## Allure reports
+
+Generate Allure result files while running tests:
+
+```bash
+pytest --alluredir=allure-results
+```
+
+Serve the report locally:
+
+```bash
+allure serve allure-results
+```
